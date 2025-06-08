@@ -29,7 +29,7 @@ export function Principal() {
   return (
     <>
       <Navbar />
-      <section className="flex flex-col md:flex-row items-center justify-between bg-blue-50 py-10 px-4 md:px-16">
+      <section className="flex flex-col md:flex-row items-center justify-between bg-blue-50 py-10 md:py-20 px-4 md:px-16">
         {/* Imagen para móvil */}
         <div className="block md:hidden mb-6 w-full flex justify-center">
           <img
