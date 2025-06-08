@@ -77,7 +77,7 @@ const Navbar = () => {
                 target="_blank"
                 className="bg-blue-900 text-white font-semibold px-4 py-1 rounded hover:bg-blue-100 transition"
               >
-                Regístrate
+                Registrarse
               </a>
             </li>
             <li>
@@ -144,7 +144,7 @@ const Navbar = () => {
                 className="bg-blue-900 text-white font-semibold px-4 py-2 rounded hover:bg-blue-100 transition block text-center"
                 onClick={() => setMenuOpen(false)}
               >
-                Regístrate
+                Registrarse
               </a>
             </li>
             <li>

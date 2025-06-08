@@ -4,7 +4,7 @@ const CardAction = ({ href, title, iconName, description, linkText }) => (
   <a
     href={href}
     title={title}
-    className="flex flex-col bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition w-full md:w-80"
+    className="flex flex-col bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition w-full md:w-70"
   >
     <div className="flex items-center mb-4">
       <span className="material-icons text-blue-900 mr-3 text-3xl">
