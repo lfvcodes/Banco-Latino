@@ -4,26 +4,7 @@ import Footer from "../partials/Footer";
 import mainImage from "../assets/img/banner_home.webp";
 import mainImage2 from "../assets/img/checkHome.webp";
 import StorePhone from "../partials/StorePhone";
-
-const CardAction = ({ href, title, iconName, description, linkText }) => (
-  <a
-    href={href}
-    title={title}
-    className="flex flex-col bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition w-full md:w-80"
-  >
-    <div className="flex items-center mb-4">
-      <span className="material-icons text-blue-900 mr-3 text-3xl">
-        {iconName}
-      </span>
-      <h3 className="text-lg font-bold text-blue-900">{title}</h3>
-    </div>
-    <p className="text-gray-700 mb-2">{description}</p>
-    <span className="flex items-center text-blue-700 font-semibold mt-auto">
-      {linkText}
-      <span className="material-icons ml-1 text-base">arrow_forward</span>
-    </span>
-  </a>
-);
+import CardAction from "../components/CardAction";
 
 export function Principal() {
   return (
@@ -53,7 +34,7 @@ export function Principal() {
           <div className="flex flex-col sm:flex-row gap-4 mb-4">
             <a
               className="bg-blue-900 text-white px-6 py-3 rounded font-semibold shadow hover:bg-blue-800 transition flex items-center"
-              href="/cuentas/cuenta-de-ahorros/"
+              href="/Registro"
               target="_blank"
               title="Crea una Cuenta"
             >
@@ -65,7 +46,8 @@ export function Principal() {
             <a
               className="bg-white text-blue-900 px-6 py-3 rounded font-semibold shadow hover:bg-blue-100 transition flex items-center"
               title="Ingresa a Banca Personas"
-              href="#"
+              target="_blank"
+              href="/Login"
             >
               Ingresa a Banca Personas
               <span className="material-icons ml-2 text-base">

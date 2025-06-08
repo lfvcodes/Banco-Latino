@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Principal from "./views/Principal";
 import Registro from "./views/Registro";
+import Nosotros from "./views/Nosotros";
 import Login from "./views/Login";
 import Empresas from "./views/Empresas";
 
@@ -28,6 +29,7 @@ root.render(
       <Route path="/Login" element={<Login />} />
       <Route path="/registro" element={<Registro />} />
       <Route path="/empresas" element={<Empresas />} />
+      <Route path="/nosotros" element={<Nosotros />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>

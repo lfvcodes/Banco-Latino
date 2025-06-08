@@ -8,12 +8,16 @@ const Navbar = () => {
     <nav className="shadow-md fixed w-full z-10 bg-white">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center font-bold text-2xl tracking-wide">
-          <img
-            src={logo}
-            alt="Banco Latino Logo"
-            className="h-10 w-10 mr-3 rounded-full bg-white object-contain"
-          />
-          <span className="text-blue-900">Banco Latino</span>
+          <a href="/">
+            <img
+              src={logo}
+              alt="Banco Latino Logo"
+              className="h-10 w-10 mr-2 rounded-full bg-white object-contain"
+            />
+          </a>
+          <a href="/">
+            <span className="text-blue-900">Banco Latino</span>
+          </a>
         </div>
 
         <button
@@ -40,7 +44,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex gap-8 items-center">
           <ul
-            className="flex gap-4 bg-blue-900 text-white rounded-xl px-10 py-2 shadow-md"
+            className="flex gap-4 bg-blue-900 ms-10 text-white rounded-xl px-10 py-2 shadow-md"
             style={{ backgroundColor: "#1e3a8a", maxWidth: "600px" }}
           >
             <li>
