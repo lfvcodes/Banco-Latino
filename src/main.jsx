@@ -6,6 +6,7 @@ import Nosotros from "./views/Nosotros";
 import Login from "./views/Login";
 import Empresas from "./views/Empresas";
 import Personas from "./views/Personas";
+import Servicios from "./views/Servicios";
 
 // Componente simple para 404
 function NotFound() {
@@ -32,6 +33,7 @@ root.render(
       <Route path="/empresas" element={<Empresas />} />
       <Route path="/personas" element={<Personas />} />
       <Route path="/nosotros" element={<Nosotros />} />
+      <Route path="/servicios" element={<Servicios />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
