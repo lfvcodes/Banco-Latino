@@ -55,21 +55,102 @@ const tabs = [
     icon: "storefront",
     content: (
       <div className="py-6">
-        <h2 className="text-2xl font-bold mb-2 flex items-center">
-          <span className="material-icons mr-2 text-purple-600">
-            storefront
-          </span>
+        <h2 className="text-2xl font-bold mb-2 flex items-center text-blue-700">
+          <span className="material-icons mr-2 text-blue-600">storefront</span>
           Menudeo
         </h2>
-        <p className="text-gray-700 mb-2">
-          Soluciones para pequeños comercios y emprendedores: puntos de venta,
-          cobros digitales y más.
+        <p className="text-gray-700 mb-4">
+          Compra y vende Divisas con los fondos disponibles que mantengas en tus
+          Cuentas, los 365 días del año a través de la App y NET, dentro de los
+          horarios establecidos.
         </p>
-        <ul className="list-disc pl-6 text-gray-600">
-          <li>Puntos de venta</li>
-          <li>Cobros móviles</li>
-          <li>Pagos QR y transferencias rápidas</li>
-        </ul>
+        <div className="mb-4">
+          <h3 className="font-semibold text-lg mb-2">Condiciones</h3>
+          <ul className="list-disc pl-6 text-gray-600">
+            <li>Debes tener cuentas activas y con saldo disponible en.</li>
+            <li>Tu información debe estar actualizada.</li>
+            <li>
+              Horarios: En línea de 4:00 a.m. a 10:00 p.m. / En Agencias de 8:30
+              a.m. a 12:00 m.
+            </li>
+            <li>
+              Operación sujeta a disponibilidad de fondos y los límites
+              establecidos en la normativa. Ciertas condiciones aplican.
+            </li>
+            <li>
+              Comisión de acuerdo al{" "}
+              <a
+                href="#"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+                title="TARIFARIO emitido por BCV"
+              >
+                TARIFARIO emitido por BCV
+              </a>
+            </li>
+            <li>
+              <a href="#" className="text-blue-600 underline">
+                Órdenes de Compra - Venta
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold mb-2">Consulta:</h4>
+          <ul className="list-disc pl-6 text-gray-600">
+            <li>
+              <a
+                href="#"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+                title="Paso a paso para la Compra de Divisas por Menudeo en Línea (Solo persona Natural)."
+              >
+                Paso a paso para la Compra de Divisas por Menudeo en Línea (Solo
+                persona Natural)
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+                title="Paso a paso para la Venta de Divisas por Menudeo en Línea."
+              >
+                Paso a paso para la Venta de Divisas por Menudeo en Línea
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+                title="Convenio Cambiario N°1."
+              >
+                Convenio Cambiario N°1
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+                title="Aviso Oficial."
+              >
+                Aviso Oficial
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+                title="Circular Operaciones al Menudeo - Banco Central de Venezuela"
+              >
+                Circular Operaciones al Menudeo - Banco Central de Venezuela
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     ),
   },
