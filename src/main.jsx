@@ -7,6 +7,9 @@ import Login from "./views/Login";
 import Empresas from "./views/Empresas";
 import Personas from "./views/Personas";
 import Servicios from "./views/Servicios";
+import Terminos from "./views/Terminos";
+import Privacidad from "./views/Privacidad";
+import QuieroInvertir from "./views/QuieroInvertir";
 
 // Componente simple para 404
 function NotFound() {
@@ -34,6 +37,10 @@ root.render(
       <Route path="/personas" element={<Personas />} />
       <Route path="/nosotros" element={<Nosotros />} />
       <Route path="/servicios" element={<Servicios />} />
+      <Route path="/terminos" element={<Terminos />} />
+      <Route path="/privacidad" element={<Privacidad />} />
+      <Route path="/invertir" element={<QuieroInvertir />} />
+      {/* Ruta para manejar 404 */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>

@@ -80,7 +80,7 @@ export function Principal() {
             linkText="Ver más"
           />
           <CardAction
-            href="/poliza/"
+            href="/invertir/"
             title="Quiero invertir"
             iconName="savings"
             description="Invierte en una póliza con una tasa de hasta 6.70%."
