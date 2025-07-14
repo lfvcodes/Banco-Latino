@@ -1,15 +1,52 @@
 import React, { useState } from "react";
-import imageLogo from "../assets/img/logoBanco.png"; // Asegúrate de tener esta imagen en la ruta correcta
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import imageLogo from "../assets/img/logoBanco.png";
+
 const Login = () => {
-  // Estados para mostrar u ocultar campos
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // State for error messages
+  const [isLoading, setIsLoading] = useState(false); // State for loading indicator
+  const navigate = useNavigate(); // Initialize navigate for redirection
 
-  // Handlers
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Lógica de login aquí
+    setError("");
+    setIsLoading(true);
+
+    const URL_API = import.meta.env.VITE_URL_API;
+    try {
+      const response = await fetch(`${URL_API}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+        credentials: "include", // Necesario para cookies si las usas
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Error en el inicio de sesión");
+      }
+
+      const data = await response.json();
+
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        alert("cambiar a home");
+        //navigate("/home");
+      }
+    } catch (err) {
+      setError(err.message || "No se pudo conectar al servidor");
+      console.error("Error de conexión:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -55,6 +92,14 @@ const Login = () => {
           <p className="text-gray-600 text-center mb-8">
             Ingrese con usuario o cree uno por primera vez.
           </p>
+
+          {/* Error message display */}
+          {error && (
+            <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+              {error}
+            </div>
+          )}
+
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
               <label
@@ -86,7 +131,7 @@ const Login = () => {
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 autoComplete="off"
                 maxLength={14}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
@@ -95,13 +140,55 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <div className="mt-1 flex items-center">
+                <input
+                  id="show-password"
+                  type="checkbox"
+                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  checked={showPassword}
+                  onChange={() => setShowPassword(!showPassword)}
+                />
+                <label
+                  htmlFor="show-password"
+                  className="ml-2 block text-sm text-gray-700"
+                >
+                  Mostrar contraseña
+                </label>
+              </div>
             </div>
             <div className="flex flex-col space-y-3 mt-4">
               <button
                 type="submit"
-                className="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-800 font-semibold w-full"
+                className="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-800 font-semibold w-full flex justify-center items-center"
+                disabled={isLoading}
               >
-                Iniciar sesión
+                {isLoading ? (
+                  <>
+                    <svg
+                      className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Procesando...
+                  </>
+                ) : (
+                  "Iniciar sesión"
+                )}
               </button>
               <button
                 type="button"
