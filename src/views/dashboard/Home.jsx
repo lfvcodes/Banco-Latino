@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../../partials/dashboard/Navbar";
 import CardButton from "../../components/CardButton";
-import mainImage from "../../assets/img/banner_home.webp";
+import mainImage from "../../assets/img/banner_home2.png";
 import BalanceBar from "../../partials/dashboard/BalanceBar";
+import Footer from "../../partials/dashboard/Footer";
 const Home = () => {
   return (
     <>
@@ -16,7 +17,7 @@ const Home = () => {
             title="Crea una Cuenta"
             width="360"
             height="100"
-            className="rounded-lg shadow-lg object-cover"
+            className="rounded-lg object-cover"
           />
         </div>
 
@@ -38,16 +39,16 @@ const Home = () => {
             title="Crea una Cuenta"
             width="713"
             height="600"
-            className="rounded-lg shadow-lg object-cover"
+            className="rounded-lg object-cover"
           />
         </div>
       </section>
-
+      <div className="flex-1" />
       <BalanceBar balance="1,000.00" />
 
       {/* Cards de acciones */}
-      <section className="bg-gray-200 py-10 md:px-2">
-        <div className="w-full mx-auto px-16 grid md:grid-cols-5 gap-2 md:gap-16">
+      <section className="bg-gray-200 py-8 pb-16 md:px-2">
+        <div className="w-full mx-auto px-16 grid md:grid-cols-5 gap-2 md:gap-8">
           <CardButton
             href="/conocenos/contacto/"
             title="Posición"
@@ -60,7 +61,7 @@ const Home = () => {
           />
           <CardButton
             href="/creditos/multicredito/"
-            title="pago movil"
+            title="Transferir"
             iconName="credit_score"
           />
           <CardButton
@@ -75,7 +76,7 @@ const Home = () => {
           />
         </div>
       </section>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50"></div>
+      <Footer className="bottom-0" />
     </>
   );
 };

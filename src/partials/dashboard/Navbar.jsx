@@ -15,7 +15,6 @@ const Navbar = ({ uconexion }) => {
           </div>
           <a
             href="/login"
-            target="_blank"
             className="bg-red-800 text-white font-semibold px-4 py-2 rounded hover:bg-blue-100 transition block text-center"
             onClick={() => setMenuOpen(false)}
           >

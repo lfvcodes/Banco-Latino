@@ -4,7 +4,7 @@ const CardButton = ({ href, title, iconName }) => (
   <a
     href={href}
     title={title}
-    className="flex flex-col bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition w-full md:w-70"
+    className="flex flex-col bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition w-full md:w-60"
   >
     <div className="flex items-center mb-2">
       <span className="material-icons text-blue-900 mr-2 text-3xl">
