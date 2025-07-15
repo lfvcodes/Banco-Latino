@@ -38,8 +38,7 @@ const Login = () => {
 
       if (data.token) {
         localStorage.setItem("token", data.token);
-        alert("cambiar a home");
-        //navigate("/home");
+        navigate("/home");
       }
     } catch (err) {
       setError(err.message || "No se pudo conectar al servidor");

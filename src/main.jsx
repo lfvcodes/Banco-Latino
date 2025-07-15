@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./views/dashboard/Home";
 import Principal from "./views/Principal";
 import Registro from "./views/Registro";
 import Nosotros from "./views/Nosotros";
@@ -32,6 +33,7 @@ root.render(
       <Route index element={<Principal />} />
       <Route path="/" element={<Principal />} />
       <Route path="/Login" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/registro" element={<Registro />} />
       <Route path="/empresas" element={<Empresas />} />
       <Route path="/personas" element={<Personas />} />
