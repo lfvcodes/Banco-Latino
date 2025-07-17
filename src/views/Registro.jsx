@@ -6,6 +6,8 @@ import PasswordField from "../components/PasswordField";
 // Componente principal del formulario de registro
 const RegistroForm = () => {
 	const [form, setForm] = useState({
+		document_number: "",
+		document_rif: "",
 		first_name: "",
 		last_name: "",
 		email: "",
@@ -35,8 +37,36 @@ const RegistroForm = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (!validate()) return;
+		// Aquí puedes manejar el envío del formulario, por ejemplo, enviarlo a una API
 
-		alert("Formulario enviado correctamente");
+		fetch(`${import.meta.env.VITE_URL_API}/user/registro`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(form),
+			credentials: "include", // Si necesitas enviar cookies
+		}).then((response) => {
+			if (!response.ok) {
+				setError("Error al enviar el formulario");
+				throw new Error("Error al enviar el formulario");
+			} else alert("Formulario enviado correctamente");
+			return response.json();
+		});
+
+		setForm({
+			document_number: "",
+			document_rif: "",
+			first_name: "",
+			last_name: "",
+			email: "",
+			document_number: "",
+			birth_date: "",
+			phone_number: "",
+			password: "",
+			confirm_password: "",
+		});
+		setError("");
 	};
 
 	return (
