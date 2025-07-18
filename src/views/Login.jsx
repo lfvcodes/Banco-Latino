@@ -99,7 +99,7 @@ const Login = () => {
 						</div>
 					)}
 
-					<form onSubmit={handleLogin} className="space-y-6">
+					<form autoComplete="off" onSubmit={handleLogin} className="space-y-6">
 						<div>
 							<label
 								htmlFor="username"

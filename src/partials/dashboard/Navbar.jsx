@@ -16,7 +16,10 @@ const Navbar = ({ uconexion }) => {
 					<a
 						href="/login"
 						className="bg-red-800 text-white font-semibold rounded hover:bg-blue-100 transition block text-center px-4 py-0"
-						onClick={() => setMenuOpen(false)}
+						onClick={() => {
+							localStorage.clear();
+							setMenuOpen(false);
+						}}
 					>
 						Salir
 					</a>
