@@ -7,7 +7,7 @@ import Footer from "../../partials/dashboard/Footer";
 const Home = () => {
 	return (
 		<>
-			<Navbar uconexion="15/07/2025 09:35am" />
+			<Navbar/>
 			<section className="flex flex-col md:flex-row items-center justify-between bg-blue-50 py-10 pb-0 md:py-10 md:pb-2 px-4 md:px-16">
 				{/* Imagen para móvil */}
 				<div className="block md:hidden mb-6 w-full flex justify-center">
@@ -55,7 +55,7 @@ const Home = () => {
 						iconName="wallet" // Icono para posición/locación
 					/>
 					<CardButton
-						href="/invertir/"
+						href="/Movimientos/"
 						title="Movimientos"
 						iconName="swap_vert" // Icono para movimientos/transacciones
 					/>

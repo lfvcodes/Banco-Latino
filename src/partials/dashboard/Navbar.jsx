@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import logo from "../../assets/img/logoBanco.png";
 
-const Navbar = ({ uconexion }) => {
+const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
-
+	const uconexion="15/08/2025 03:35pm"
 	return (
 		<nav className="shadow-md fixed w-full z-10 bg-white">
 			<nav className="shadow-md w-full bg-gray-50 py-1">
