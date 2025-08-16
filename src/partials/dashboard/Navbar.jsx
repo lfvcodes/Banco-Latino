@@ -34,7 +34,7 @@ const Navbar = () => {
 							className="h-10 w-10 mr-2 rounded-full bg-white object-contain"
 						/>
 					</a>
-					<a href="/">
+					<a href="/home">
 						<span className="text-blue-900">Banco Latino</span>
 					</a>
 				</div>
@@ -67,7 +67,7 @@ const Navbar = () => {
 						style={{ backgroundColor: "#1e3a8a", maxWidth: "600px" }}
 					>
 						<li>
-							<a href="/posicion" className="hover:text-blue-300 transition">
+							<a href="/home" className="hover:text-blue-300 transition">
 								Posicion
 							</a>
 						</li>

@@ -55,12 +55,12 @@ const Home = () => {
 						iconName="wallet" // Icono para posición/locación
 					/>
 					<CardButton
-						href="/Movimientos/"
+						href="/movimientos/"
 						title="Movimientos"
 						iconName="swap_vert" // Icono para movimientos/transacciones
 					/>
 					<CardButton
-						href="/creditos/multicredito/"
+						href="/Transferir/"
 						title="Transferir"
 						iconName="send" // Icono para transferencias
 					/>

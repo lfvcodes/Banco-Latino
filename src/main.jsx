@@ -12,6 +12,8 @@ import Terminos from "./views/Terminos";
 import Privacidad from "./views/Privacidad";
 import QuieroInvertir from "./views/QuieroInvertir";
 import Movimientos from "./views/dashboard/Movimientos"
+import Transferir from "./views/dashboard/Transferir";
+
 
 // Componente simple para 404
 function NotFound() {
@@ -52,7 +54,9 @@ root.render(
 			<Route path="/terminos" element={<Terminos />} />
 			<Route path="/privacidad" element={<Privacidad />} />
 			<Route path="/invertir" element={<QuieroInvertir />} />
-			<Route path="/Movimientos" element={<Movimientos />} />
+			<Route path="/movimientos" element={<Movimientos />} />
+			<Route path="/transferencias" element={<Transferir />} />
+			<Route path="/transferir" element={<Transferir />} />
 			{/* Ruta para manejar 404 */}
 			<Route path="*" element={<NotFound />} />
 		</Routes>
