@@ -50,7 +50,7 @@ const Home = () => {
 			<section className="bg-gray-200 py-8 pb-16 md:px-2">
 				<div className="w-full mx-auto px-16 grid md:grid-cols-5 gap-2 md:gap-8">
 					<CardButton
-						href="/conocenos/contacto/"
+						href="/home"
 						title="Posición"
 						iconName="wallet" // Icono para posición/locación
 					/>
@@ -65,12 +65,12 @@ const Home = () => {
 						iconName="send" // Icono para transferencias
 					/>
 					<CardButton
-						href="/creditos/multicredito/"
+						href="/servicios/"
 						title="Servicios"
 						iconName="miscellaneous_services" // Icono para servicios
 					/>
 					<CardButton
-						href="/creditos/multicredito/"
+						href="/tarjetas"
 						title="Tarjetas"
 						iconName="credit_card" // Icono para tarjetas
 					/>
