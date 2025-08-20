@@ -1,10 +1,16 @@
 import React from 'react';
 import Navbar from '../../partials/dashboard/Navbar';
 import Footer from '../../partials/dashboard/Footer';
-import CardType from '../../components/CardType';
-import CardManagement from '../../components/CardManagement';
+import CardType from '../../components/Tarjetas/CardType';
+import CardManagement from '../../components/Tarjetas/CardManagement';
 import CardHistory from '../../components/CardHistory';
 import '../../assets/css/CardsSection.css';
+
+const transactions = [
+  { id: 1, date: '15/08/2025', description: 'Compra en Supermercado', amount: -55.75 },
+  { id: 2, date: '14/08/2025', description: 'Retiro en Cajero Automático', amount: -100.00 },
+  { id: 3, date: '12/08/2025', description: 'Suscripción Netflix', amount: -12.99 },
+];
 
 const Tarjetas = () => {
   return (
@@ -57,7 +63,7 @@ const Tarjetas = () => {
 
           {/* 5. Historial y Movimientos */}
           <h2 className="section-subtitle">📊 Historial y Movimientos</h2>
-          <CardHistory />
+          <CardHistory movements={transactions} />
         </div>
       </section>
       <Footer className="bottom-0" />

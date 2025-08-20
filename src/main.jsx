@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Principal from "./views/Principal";
 import Home from "./views/dashboard/Home";
+import Principal from "./views/Principal";
 import Registro from "./views/Registro";
 import Nosotros from "./views/Nosotros";
 import Login from "./views/Login";
@@ -14,6 +14,7 @@ import QuieroInvertir from "./views/QuieroInvertir";
 import Movimientos from "./views/dashboard/Movimientos"
 import Transferir from "./views/dashboard/Transferir";
 import Tarjetas from "./views/dashboard/Tarjetas";
+import Divisas from "./views/dashboard/Divisas";
 
 
 // Componente simple para 404
@@ -58,7 +59,8 @@ root.render(
 			<Route path="/movimientos" element={<Movimientos />} />
 			<Route path="/transferencias" element={<Transferir />} />
 			<Route path="/transferir" element={<Transferir />} />
-			<Route path="tarjetas" element={<Tarjetas/>}/>
+			<Route path="/tarjetas" element={<Tarjetas/>}/>
+			<Route path="/divisas" element={<Divisas/>}/>
 			{/* Ruta para manejar 404 */}
 			<Route path="*" element={<NotFound />} />
 		</Routes>
