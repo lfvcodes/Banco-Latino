@@ -65,7 +65,7 @@ const Home = () => {
 						iconName="send" // Icono para transferencias
 					/>
 					<CardButton
-						href="/servicios/"
+						href="/dashboard/servicios/"
 						title="Servicios"
 						iconName="miscellaneous_services" // Icono para servicios
 					/>

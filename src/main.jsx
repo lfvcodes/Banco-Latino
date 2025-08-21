@@ -15,6 +15,7 @@ import Movimientos from "./views/dashboard/Movimientos"
 import Transferir from "./views/dashboard/Transferir";
 import Tarjetas from "./views/dashboard/Tarjetas";
 import Divisas from "./views/dashboard/Divisas";
+import {Servicios as DashServicios} from "./views/dashboard/Servicios";
 
 
 // Componente simple para 404
@@ -61,6 +62,7 @@ root.render(
 			<Route path="/transferir" element={<Transferir />} />
 			<Route path="/tarjetas" element={<Tarjetas/>}/>
 			<Route path="/divisas" element={<Divisas/>}/>
+			<Route path="/dashboard/servicios" element={<DashServicios/>}/>
 			{/* Ruta para manejar 404 */}
 			<Route path="*" element={<NotFound />} />
 		</Routes>

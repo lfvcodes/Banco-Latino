@@ -1,10 +1,13 @@
 import React from "react";
 
-const CardButton = ({ href, title, iconName }) => (
+const defClass = "flex flex-col bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition w-full md:w-55";
+
+const CardButton = ({ href, title, iconName, className = defClass }) => (
+	
 	<a
 		href={href}
 		title={title}
-		className="flex flex-col bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition w-full md:w-55"
+		className={className}
 	>
 		<div className="flex items-center mb-2">
 			<span className="material-icons text-blue-900 mr-2 text-3xl">
