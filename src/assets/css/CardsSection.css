@@ -60,18 +60,24 @@
 }
 
 /* Gestión, Seguridad e Historial */
-ul {
+.card-management-container ul,.transaction-list,
+.card-security-container ul {
   list-style: none;
   padding: 0;
 }
 
-li {
+.card-management-container li,
+.transaction-list li,
+.card-security-container li
+ {
   padding: 10px 0;
   display: flex;
   align-items: center;
 }
 
-button {
+.card-management-container button,
+.transaction-list button,
+.card-security-container button {
   background-color: #1976d2;
   color: white;
   border: none;

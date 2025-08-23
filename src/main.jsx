@@ -16,6 +16,7 @@ import Transferir from "./views/dashboard/Transferir";
 import Tarjetas from "./views/dashboard/Tarjetas";
 import Divisas from "./views/dashboard/Divisas";
 import {Servicios as DashServicios} from "./views/dashboard/Servicios";
+import PayServices from "./components/Servicios/PayServices";
 
 
 // Componente simple para 404
@@ -63,6 +64,13 @@ root.render(
 			<Route path="/tarjetas" element={<Tarjetas/>}/>
 			<Route path="/divisas" element={<Divisas/>}/>
 			<Route path="/dashboard/servicios" element={<DashServicios/>}/>
+			<Route path="/dashboard/servicios/recarga" element={<PayServices title="Recarga Telefonica" />} />
+			<Route path="/dashboard/servicios/energia" element={<PayServices title="Energía Eléctrica" />} />
+			<Route path="/dashboard/servicios/agua" element={<PayServices title="Agua" />} />
+			<Route path="/dashboard/servicios/internet" element={<PayServices title="Internet" />} />
+			<Route path="/dashboard/servicios/tv" element={<PayServices title="TV Cable" />} />
+			<Route path="/dashboard/servicios/gas" element={<PayServices title="Gas" />} />
+
 			{/* Ruta para manejar 404 */}
 			<Route path="*" element={<NotFound />} />
 		</Routes>

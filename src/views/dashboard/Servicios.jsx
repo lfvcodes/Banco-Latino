@@ -60,6 +60,12 @@ export const Servicios = () => {
                 iconName="wifi"
                 className={classButtonService}
               />
+              <CardButton
+                href="/dashboard/servicios/tv"
+                title="TV"
+                iconName="tv"
+                className={classButtonService}
+              />
              
             </div>
 
