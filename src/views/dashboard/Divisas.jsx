@@ -3,6 +3,7 @@ import Navbar from '../../partials/dashboard/Navbar';
 import Footer from '../../partials/dashboard/Footer';
 import CardHistory from '../../components/CardHistory';
 import CardButton from "../../components/CardButton";
+import HelpSection from '../../partials/dashboard/HelpSection';
 import '../../assets/css/CardsSection.css';
 
 const transactions = [
@@ -26,40 +27,38 @@ const Divisas = () => {
             Divisas
           </h2>
           
-          {/* 1. Resumen General */}
           <div className="general-summary">
             <p className='text-center'>
               Compra y venta de divisas en línea por Banco Latino, con las opciones: Mesa de Cambio, Menudeo e Intervención Cambiaria. Pagos efectivos al momento con Pago Móvil Latino
             </p>
           </div>
 
-
-          {/* 2. Operaciones Divisa */}
           <h2 className="section-subtitle">Operaciones</h2>
           
             <div className="w-full mx-auto py-4 grid md:grid-cols-3 gap-2 md:gap-8">
               <CardButton
                 href="/divisas"
                 title="Compra de Divisas"
-                iconName="wallet" // Icono para posición/locación
+                iconName="wallet"
               />
               <CardButton
                 href="/divisas/"
                 title="Venta de Divisas"
-                iconName="swap_vert" // Icono para movimientos/transacciones
+                iconName="swap_vert"
               />
               <CardButton
                 href="/divisas/"
                 title="Menudeo y mesa de cambio P2P"
-                iconName="send" // Icono para transferencias
+                iconName="send"
               />
             </div>
 
-
-          {/* 5. Historial y Movimientos */}
           <h2 className="section-subtitle">📊 Historial y Movimientos</h2>
           <CardHistory movements={transactions} />
         </div>
+        
+        <HelpSection />
+              
       </section>
       <Footer className="bottom-0" />
     </>
