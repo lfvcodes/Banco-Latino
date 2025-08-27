@@ -92,82 +92,82 @@ const Transferir = () => {
             </div>
             <div className="pt-0">
               <div className="container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-                  <div className="font-bold text-gray-700">
-                    <small>
-                      Haga click en el directorio de pagos para seleccionar los
-                      datos del beneficiario:
-                    </small>
-                  </div>
-                  <div className="flex justify-end md:justify-start"> {/* Alinea el botón a la derecha en móviles, a la izquierda en md+ */}
-                    <button
-                      type="button"
-                      onClick={() => setShowDirectorioModal(true)}
-                      className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
-                    >
-                      Directorio
-                    </button>
-                    
-                    {showDirectorioModal && (
-                      <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4"> {/* Opacidad cambiada aquí */}
-                        <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-100 transition-transform duration-300 ease-out">
-                          <div className="flex justify-between items-center p-4 border-b border-gray-200">
-                            <h5 className="text-xl font-semibold text-gray-800">
-                              Contactos
-                            </h5>
-                            <button
-                              type="button"
-                              onClick={() => setShowDirectorioModal(false)}
-                              className="text-gray-400 hover:text-gray-600 focus:outline-none p-1 rounded-full transition-colors duration-200"
-                              aria-label="Close"
-                            >
-                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                            </button>
-                          </div>
-                          <div className="p-4 overflow-x-auto">
-                            <table className="min-w-full text-left divide-y divide-gray-200">
-                              <thead className="bg-blue-50 border-b-2 border-blue-300 text-blue-700">
-                                <tr>
-                                  <th className="px-4 py-2 font-semibold">Alias</th>
-                                  <th className="px-4 py-2 font-semibold">Descripción</th>
-                                  <th className="px-4 py-2 font-semibold">Número de Cuenta</th>
-                                  <th className="px-4 py-2 font-semibold">Acción</th>
-                                </tr>
-                              </thead>
-                              <tbody className="divide-y divide-gray-200">
-                                {directorioContacts.map((contact, index) => (
-                                  <tr key={index} className="hover:bg-gray-50">
-                                    <td className="px-4 py-2 text-gray-800">{contact.alias}</td>
-                                    <td className="px-4 py-2 text-gray-600">{contact.description}</td>
-                                    <td className="px-4 py-2 text-gray-600">{contact.account_number}</td>
-                                    <td className="px-4 py-2">
-                                      <button
-                                        type="button"
-                                        onClick={() => seleccionarContacto(contact)}
-                                        className="bg-green-500 text-white font-bold py-1 px-3 rounded-md hover:bg-green-600 transition-colors duration-200"
-                                      >
-                                        Seleccionar
-                                      </button>
-                                    </td>
+                <div className="flex flex-col md:flex-row items-start md:items-center mb-4">
+                    <div className="block text-gray-700 font-bold md:w-1/2 mb-1 md:mb-0">
+                      <small>
+                        Haga click en el directorio de pagos para seleccionar los
+                        datos del beneficiario:
+                      </small>
+                    </div>
+                    <div className="w-full md:w-1/2 border-none border-b-2 border-blue-500 text-gray-900 focus:outline-none focus:border-blue-700 p-2 rounded-md">
+                      <button
+                        type="button"
+                        onClick={() => setShowDirectorioModal(true)}
+                        className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+                      >
+                        Directorio
+                      </button>
+                      
+                      {showDirectorioModal && (
+                        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4"> {/* Opacidad cambiada aquí */}
+                          <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-100 transition-transform duration-300 ease-out">
+                            <div className="flex justify-between items-center p-4 border-b border-gray-200">
+                              <h5 className="text-xl font-semibold text-gray-800">
+                                Contactos
+                              </h5>
+                              <button
+                                type="button"
+                                onClick={() => setShowDirectorioModal(false)}
+                                className="text-gray-400 hover:text-gray-600 focus:outline-none p-1 rounded-full transition-colors duration-200"
+                                aria-label="Close"
+                              >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                              </button>
+                            </div>
+                            <div className="p-4 overflow-x-auto">
+                              <table className="min-w-full text-left divide-y divide-gray-200">
+                                <thead className="bg-blue-50 border-b-2 border-blue-300 text-blue-700">
+                                  <tr>
+                                    <th className="px-4 py-2 font-semibold">Alias</th>
+                                    <th className="px-4 py-2 font-semibold">Descripción</th>
+                                    <th className="px-4 py-2 font-semibold">Documento</th>
+                                    <th className="px-4 py-2 font-semibold">Acción</th>
                                   </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                          <div className="flex justify-end p-4 border-t border-gray-200">
-                            <button
-                              type="button"
-                              onClick={() => setShowDirectorioModal(false)}
-                              className="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200"
-                            >
-                              Cerrar
-                            </button>
+                                </thead>
+                                <tbody className="divide-y divide-gray-200">
+                                  {directorioContacts.map((contact, index) => (
+                                    <tr key={index} className="hover:bg-gray-50">
+                                      <td className="px-4 py-2 text-gray-800">{contact.alias}</td>
+                                      <td className="px-4 py-2 text-gray-600">{contact.description}</td>
+                                      <td className="px-4 py-2 text-gray-600">{contact.doc_number}</td>
+                                      <td className="px-4 py-2">
+                                        <button
+                                          type="button"
+                                          onClick={() => seleccionarContacto(contact)}
+                                          className="bg-green-500 text-white font-bold py-1 px-3 rounded-md hover:bg-green-600 transition-colors duration-200"
+                                        >
+                                          Seleccionar
+                                        </button>
+                                      </td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                            <div className="flex justify-end p-4 border-t border-gray-200">
+                              <button
+                                type="button"
+                                onClick={() => setShowDirectorioModal(false)}
+                                className="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors duration-200"
+                              >
+                                Cerrar
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
-                </div>
               </div>
               <form className="mt-6 space-y-4" onSubmit={transferir}>
                 {/* Campo Número de cuenta */}
@@ -207,7 +207,6 @@ const Transferir = () => {
                   </div>
                 )}
 
-                {/* Campo Monto */}
                 <div className="flex flex-col md:flex-row items-start md:items-center mb-4">
                   <label htmlFor="amount" className="block text-gray-700 font-bold md:w-1/4 mb-1 md:mb-0">
                     Monto:
@@ -223,7 +222,6 @@ const Transferir = () => {
                   </div>
                 </div>
 
-                {/* Campo Concepto */}
                 <div className="flex flex-col md:flex-row items-start md:items-center mb-4">
                   <label htmlFor="concept" className="block text-gray-700 font-bold md:w-1/4 mb-1 md:mb-0">
                     Concepto:
@@ -239,41 +237,44 @@ const Transferir = () => {
                   </div>
                 </div>
 
-                {/* Checkbox para agregar a contactos frecuentes */}
-                <div className="flex flex-col md:flex-row items-start md:items-center mb-4 md:pl-1/4"> {/* md:pl-1/4 para alinear con los inputs */}
-                  <label htmlFor="checkFreq" className="flex items-center text-gray-700">
-                    <input
-                      id="checkFreq"
-                      checked={isChecked}
-                      onChange={verNombre}
-                      type="checkbox"
-                      className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                    />{" "}
-                    <span className="ml-2">Agregar a contactos frecuentes</span>
-                  </label>
+                <div className="flex flex-col md:flex-row items-start md:items-center mb-4 md:pl-1/4">
+                    <label htmlFor="concept" className="block text-gray-700 font-bold md:w-1/2 mb-1 md:mb-0">
+                    </label>
+                    <label htmlFor="checkFreq" className="flex items-center text-gray-700 md:w-1/2">
+                      <input
+                        id="checkFreq"
+                        checked={isChecked}
+                        onChange={verNombre}
+                        type="checkbox"
+                        className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />{" "}
+                      <span className="ml-2">Agregar a contactos frecuentes</span>
+                    </label>
                 </div>
 
-                {/* Botones Cancelar y Transferir */}
-                <div className="flex flex-col md:flex-row justify-between items-center mt-6 space-y-4 md:space-y-0 md:space-x-4">
-                  <div className="w-full md:w-1/2 flex justify-start">
+                <div className="flex flex-col md:flex-row items-start md:items-center mb-4">
+                    <label htmlFor="concept" className="block text-gray-700 font-bold md:w-1/2 mb-1 md:mb-0">
+                    </label>
+                  <div className="flex flex-row justify-center items-center mt-6 space-x-2">
                     <button
                       onClick={resetForm}
                       type="button"
-                      className="bg-red-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200 flex items-center justify-center w-full md:w-auto"
+                      className="bg-red-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200 flex items-center justify-center"
                     >
                       Cancelar
                       <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     </button>
-                  </div>
-                  <div className="w-full md:w-1/2 flex justify-end">
+                  
+                  
                     <button
                       type="submit"
-                      className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 flex items-center justify-center w-full md:w-auto"
+                      className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 flex items-center justify-center"
                     >
                       Transferir
                       <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </button>
-                  </div>
+                    </div>
+                  
                 </div>
               </form>
 
