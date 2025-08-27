@@ -21,27 +21,27 @@ const Footer = ({ className }) => (
             <h3 className="text-lg font-semibold mb-4">Enlaces de Interés</h3>
             <ul className="text-sm">
               <li>
-                <a href="/productos" className="hover:text-blue-300">
-                  Productos y Servicios
+                <a target="_blank" href="/servicios" className="hover:text-blue-300">
+                 Servicios
                 </a>
               </li>
               <li>
-                <a href="/inversiones" className="hover:text-blue-300">
+                <a target="_blank" href="/invertir" className="hover:text-blue-300">
                   Inversiones
                 </a>
               </li>
               <li>
-                <a href="/seguros" className="hover:text-blue-300">
+                <a target="_blank" href="/seguros" className="hover:text-blue-300">
                   Seguros
                 </a>
               </li>
               <li>
-                <a href="/creditos" className="hover:text-blue-300">
+                <a target="_blank" href="/creditos" className="hover:text-blue-300">
                   Créditos
                 </a>
               </li>
               <li>
-                <a href="/tasas" className="hover:text-blue-300">
+                <a target="_blank" href="/tasas" className="hover:text-blue-300">
                   Tasas y Tarifas
                 </a>
               </li>

@@ -18,6 +18,7 @@ import Divisas from "./views/dashboard/Divisas";
 import {Servicios as DashServicios} from "./views/dashboard/Servicios";
 import PayServices from "./components/Servicios/PayServices";
 import Cuentas from "./views/dashboard/Cuentas";
+import Seguridad from "./views/dashboard/Seguridad";
 import PagoMovil from "./views/dashboard/PagoMovil";
 
 
@@ -73,7 +74,9 @@ root.render(
 			<Route path="/dashboard/servicios/tv" element={<PayServices title="TV Cable" />} />
 			<Route path="/dashboard/servicios/gas" element={<PayServices title="Gas" />} />
 			<Route path="/dashboard/cuentas" element={<Cuentas />} />
+			<Route path="/seguridad" element={<Seguridad />} />
 			<Route path="/pagomovil" element={<PagoMovil />} />
+			
 
 			{/* Ruta para manejar 404 */}
 			<Route path="*" element={<NotFound />} />
