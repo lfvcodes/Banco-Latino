@@ -5,7 +5,6 @@ const Footer = ({ className }) => (
     <footer className="bg-blue-900 text-white">
       <div className="container mx-auto py-12 px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Sección 1: Información del Banco */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Banco Latino</h3>
             <p className="text-sm">
@@ -18,7 +17,6 @@ const Footer = ({ className }) => (
             </p>
           </div>
 
-          {/* Sección 2: Enlaces de Interés */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Enlaces de Interés</h3>
             <ul className="text-sm">
@@ -50,7 +48,6 @@ const Footer = ({ className }) => (
             </ul>
           </div>
 
-          {/* Sección 3: Contacto y Redes Sociales */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contacto</h3>
             <p className="text-sm">
@@ -62,12 +59,11 @@ const Footer = ({ className }) => (
             </p>
             <p className="text-sm mt-2">Síguenos en nuestras redes sociales:</p>
             <div className="flex gap-4 mt-2">
-              {/*  Aquí puedes agregar los iconos de tus redes sociales */}
               <a href="#" className="hover:text-blue-300">
                 Facebook
               </a>
               <a href="#" className="hover:text-blue-300">
-                Twitter
+                Instagram
               </a>
               <a href="#" className="hover:text-blue-300">
                 LinkedIn
@@ -76,10 +72,8 @@ const Footer = ({ className }) => (
           </div>
         </div>
 
-        {/* Línea divisoria */}
         <hr className="my-8 border-blue-700" />
 
-        {/* Derechos Reservados y Enlaces Adicionales */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
           <p>
             © {new Date().getFullYear()} Banco Latino. Todos los derechos

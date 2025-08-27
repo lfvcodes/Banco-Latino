@@ -107,7 +107,7 @@ const Transferir = () => {
                     >
                       Directorio
                     </button>
-                    {/* Modal de Directorio (recreado con Tailwind y estado de React) */}
+                    
                     {showDirectorioModal && (
                       <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4"> {/* Opacidad cambiada aquí */}
                         <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-100 transition-transform duration-300 ease-out">

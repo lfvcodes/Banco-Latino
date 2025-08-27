@@ -85,8 +85,8 @@ const Navbar = () => {
 							</a>
 						</li>
 						<li>
-							<a href="/pagos" className="hover:text-blue-300 transition">
-								Pagos
+							<a href="/pagomovil" className="hover:text-blue-300 transition">
+								Pago Movil
 							</a>
 						</li>
 						<li>
@@ -141,8 +141,8 @@ const Navbar = () => {
 							</a>
 						</li>
 						<li>
-							<a href="/pagos" className="hover:text-blue-300 transition">
-								Pagos
+							<a href="/pagomovil" className="hover:text-blue-300 transition">
+								Pago Movil
 							</a>
 						</li>
 						<li>
