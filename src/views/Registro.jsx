@@ -34,40 +34,50 @@ const RegistroForm = () => {
 		return true;
 	};
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		if (!validate()) return;
-		// Aquí puedes manejar el envío del formulario, por ejemplo, enviarlo a una API
+	const handleSubmit = async (event) => {
+  event.preventDefault();
 
-		fetch(`${import.meta.env.VITE_URL_API}/user/registro`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(form),
-			credentials: "include", // Si necesitas enviar cookies
-		}).then((response) => {
-			if (!response.ok) {
-				setError("Error al enviar el formulario");
-				throw new Error("Error al enviar el formulario");
-			} else alert("Formulario enviado correctamente");
-			return response.json();
-		});
+  if (!validate()) return;
 
-		setForm({
-			document_number: "",
-			document_rif: "",
-			first_name: "",
-			last_name: "",
-			email: "",
-			document_number: "",
-			birth_date: "",
-			phone_number: "",
-			password: "",
-			confirm_password: "",
-		});
-		setError("");
-	};
+  try {
+    const response = await fetch(`${import.meta.env.VITE_URL_API}/user/registro`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      setError(errorData.message || "Error al enviar el formulario");
+      return;
+    }
+
+    const data = await response.json();
+    alert("Formulario enviado correctamente");
+
+    setForm({
+      document_number: "",
+      document_rif: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      birth_date: "",
+      phone_number: "",
+      password: "",
+      confirm_password: "",
+    });
+    setError("");
+
+		window.location.href = "/login";
+
+  } catch (error) {
+    console.error("Error en envío:", error);
+    setError("Error de conexión con el servidor");
+  }
+};
 
 	return (
 		<form
@@ -180,7 +190,7 @@ const RegistroForm = () => {
 				</small>
 			</div>
 			{error && (
-				<div className="alert alert-danger py-2 text-center mb-3">{error}</div>
+				<div className="alert alert-danger text-danger py-2 text-center mb-3">{error}</div>
 			)}
 			<button
 				type="submit"
