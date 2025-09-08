@@ -1,13 +1,40 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Navbar from "../../partials/dashboard/Navbar";
 import CardButton from "../../components/CardButton";
 import mainImage from "../../assets/img/banner_home2.png";
 import BalanceBar from "../../partials/dashboard/BalanceBar";
 import Footer from "../../partials/dashboard/Footer";
+
 const Home = () => {
+
+	const [userInfo, setUserInfo] = useState({});
+	const URL_API = import.meta.env.VITE_URL_API;
+	
+	const getInitData = () => {
+		
+		fetch(`${URL_API}/home`, {
+		method: "GET",
+		credentials: "include",
+	})
+		.then((res) => {
+		if (!res.ok) throw new Error("No autenticado");
+		return res.json();
+		})
+		.then((data) => {
+			setUserInfo(data);
+		})
+		.catch((err) => {
+		console.error("Error al obtener datos del usuario:", err);
+		});
+	};
+	
+	useEffect(() => {
+		getInitData();
+	},[]);
+
 	return (
 		<>
-			<Navbar/>
+			<Navbar user={userInfo.name}/>
 			<section className="flex flex-col md:flex-row items-center justify-between bg-blue-50 py-10 pb-0 md:py-10 md:pb-2 px-4 md:px-16">
 				{/* Imagen para móvil */}
 				<div className="block md:hidden mb-6 w-full flex justify-center">
@@ -44,7 +71,7 @@ const Home = () => {
 				</div>
 			</section>
 			<div className="flex-1" />
-			<BalanceBar balance="1,000.00" />
+			<BalanceBar balance={userInfo.saldo} />
 
 			{/* Cards de acciones */}
 			<section className="bg-gray-200 py-8 pb-16 md:px-2">

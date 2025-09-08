@@ -1,24 +1,41 @@
 import React, { useState } from "react";
 import logo from "../../assets/img/logoBanco.png";
 
-const Navbar = () => {
+const Navbar = ({user}) => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	const uconexion="22/08/2025 03:35pm"
+
+	const logout = async () => {
+		
+		try {
+			const res = await fetch(`${VITE_URL_API}/logout`, {
+			method: "POST",
+			credentials: "include",
+			});
+
+			if (!res.ok) throw new Error("Error al cerrar sesión");
+			setMenuOpen(false);
+			navigate("/login");
+		} catch (err) {
+			console.error("Error en logout:", err);
+		}
+		
+	}
+
 	return (
 		<nav className="shadow-md fixed w-full z-10 bg-white">
 			<nav className="shadow-md w-full bg-gray-50 py-1">
 				<div className="flex items-center justify-between px-6 py-1">
 					<div className="md:flex gap-4">
 						<p className="flex">
-							Buenos días fulanito Su Ultima Conexión fue: {uconexion}
+							Buenos días {user} Su Ultima Conexión fue: {uconexion}
 						</p>
 					</div>
 					<a
 						href="/login"
 						className="bg-red-800 text-white font-semibold rounded hover:bg-blue-100 transition block text-center px-4 py-0"
 						onClick={() => {
-							localStorage.clear();
-							setMenuOpen(false);
+							logout();
 						}}
 					>
 						Salir

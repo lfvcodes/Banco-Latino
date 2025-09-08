@@ -3,7 +3,6 @@ import Navbar from "../partials/Navbar";
 import InputField from "../components/InputField";
 import PasswordField from "../components/PasswordField";
 
-// Componente principal del formulario de registro
 const RegistroForm = () => {
 	const [form, setForm] = useState({
 		document_number: "",
@@ -56,7 +55,7 @@ const RegistroForm = () => {
     }
 
     const data = await response.json();
-    alert("Formulario enviado correctamente");
+    alert("Registro exitoso. Por favor, inicia sesión.");
 
     setForm({
       document_number: "",

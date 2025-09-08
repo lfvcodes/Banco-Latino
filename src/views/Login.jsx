@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import { useNavigate } from "react-router-dom"; 
 import imageLogo from "../assets/img/logoBanco.png";
 
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-	const [error, setError] = useState(""); // State for error messages
-	const [isLoading, setIsLoading] = useState(false); // State for loading indicator
-	const navigate = useNavigate(); // Initialize navigate for redirection
+	const [error, setError] = useState(""); 
+	const [isLoading, setIsLoading] = useState(false); 
+	const navigate = useNavigate(); 
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
@@ -36,8 +36,7 @@ const Login = () => {
 
 			const data = await response.json();
 
-			if (data.token) {
-				localStorage.setItem("token", data.token);
+			if (data.access) {
 				navigate("/home");
 			}
 		} catch (err) {
@@ -105,7 +104,7 @@ const Login = () => {
 								htmlFor="username"
 								className="block text-sm font-medium text-gray-700"
 							>
-								Usuario
+								Correo Electrónico o Usuario
 							</label>
 							<input
 								id="username"
