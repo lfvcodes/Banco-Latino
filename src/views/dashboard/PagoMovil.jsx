@@ -1,28 +1,65 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "../../partials/dashboard/Navbar";
 import Footer from "../../partials/dashboard/Footer";
 
 const PagoMovil = () => {
-  const [cuenta, setCuenta] = useState("0123-4567-8901-2345");
-    const [saldo, setSaldo] = useState(1000);
+    const URL_API = import.meta.env.VITE_URL_API;
+    const [cuenta, setCuenta] = useState("");
+    const [saldo, setSaldo] = useState(0);
+    const [name, setName] = useState("");
     const [isChecked, setIsChecked] = useState(false);
     const [transferData, setTransferData] = useState({}); // Para datos de comprobante
     const [showDirectorioModal, setShowDirectorioModal] = useState(false);
     const [showComprobanteModal, setShowComprobanteModal] = useState(false);
   
-    // Estados para los campos del formulario
     const [docNumber, setdocNumber] = useState("");
     const [beneficiaryName, setBeneficiaryName] = useState("");
     const [amount, setAmount] = useState("");
     const [concept, setConcept] = useState("");
-  
-    // Datos de prueba para el directorio de contactos
-    const directorioContacts = [
-      { alias: "Amigo Juan", description: "Cuenta Ahorro", doc_number: "9876543" },
-      { alias: "Familia Maria", description: "Cuenta Corriente", doc_number: "27856365" },
-      { alias: "Negocio XYZ", description: "Cuenta Empresa", doc_number: "22334455" },
-    ];
-  
+    const [directorioContacts,setDirectorioContacts] = useState([]);
+
+
+  const getInitData = () => {
+      
+      fetch(`${URL_API}/home`, {
+        method: "GET",
+        credentials: "include",
+      })
+      .then((res) => {
+      if (!res.ok) throw new Error("No autenticado");
+      return res.json();
+      })
+      .then((data) => {
+        setName(data.name);
+        setCuenta(data.account);
+        setSaldo(data.saldo);
+      })
+      .catch((err) => {
+      console.error("Error al obtener datos del usuario:", err);
+      });
+    };
+    
+    useEffect(() => {
+      getInitData();
+    },[]);
+
+    const loadContacts = () => {
+      fetch(`${URL_API}/contacts`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Accept-Language": "es",
+        },
+      }).then((response) => {
+          if (!response.ok) throw new Error("Error al obtener contactos");
+          return response.json();
+        })
+        .then((data) => {
+          setDirectorioContacts(data);
+        })
+        .catch((error) => console.error("Error en obtener contactos:", error));
+    };
+
     const verNombre = () => {
       setIsChecked(!isChecked);
     };
@@ -33,15 +70,14 @@ const PagoMovil = () => {
       setAmount("");
       setConcept("");
       setIsChecked(false);
-      // Puedes añadir lógica para cerrar modales si están abiertos
       setShowDirectorioModal(false);
       setShowComprobanteModal(false);
     };
   
     const seleccionarContacto = (contact) => {
-      setdocNumber(contact.doc_number);
-      setBeneficiaryName(contact.alias); // O el nombre real del contacto
-      setShowDirectorioModal(false); // Cierra el modal después de seleccionar
+      setdocNumber(contact.account);
+      setBeneficiaryName(contact.alias);
+      setShowDirectorioModal(false);
     };
   
     const transferir = (e) => {
@@ -68,7 +104,7 @@ const PagoMovil = () => {
   
     return (
       <>
-        <Navbar />
+        <Navbar user={name} />
         <section className="min-h-screen w-full flex flex-col items-center bg-blue-50 py-10 px-4 md:px-16 pt-32">
           <div className="container mx-auto text-center mb-10 p-4 bg-white rounded-lg shadow-lg">
             <h2
@@ -101,7 +137,7 @@ const PagoMovil = () => {
                     <div className="w-full md:w-1/2 border-none border-b-2 border-blue-500 text-gray-900 focus:outline-none focus:border-blue-700 p-2 rounded-md">
                       <button
                         type="button"
-                        onClick={() => setShowDirectorioModal(true)}
+                        onClick={() => { loadContacts(); setShowDirectorioModal(true)}}
                         className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
                       >
                         Directorio
@@ -128,8 +164,7 @@ const PagoMovil = () => {
                                 <thead className="bg-blue-50 border-b-2 border-blue-300 text-blue-700">
                                   <tr>
                                     <th className="px-4 py-2 font-semibold">Alias</th>
-                                    <th className="px-4 py-2 font-semibold">Descripción</th>
-                                    <th className="px-4 py-2 font-semibold">Documento</th>
+                                    <th className="px-4 py-2 font-semibold">Cuenta</th>
                                     <th className="px-4 py-2 font-semibold">Acción</th>
                                   </tr>
                                 </thead>
@@ -137,8 +172,7 @@ const PagoMovil = () => {
                                   {directorioContacts.map((contact, index) => (
                                     <tr key={index} className="hover:bg-gray-50">
                                       <td className="px-4 py-2 text-gray-800">{contact.alias}</td>
-                                      <td className="px-4 py-2 text-gray-600">{contact.description}</td>
-                                      <td className="px-4 py-2 text-gray-600">{contact.doc_number}</td>
+                                      <td className="px-4 py-2 text-gray-600">{contact.account}</td>
                                       <td className="px-4 py-2">
                                         <button
                                           type="button"

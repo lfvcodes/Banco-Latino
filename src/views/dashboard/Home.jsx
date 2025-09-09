@@ -13,9 +13,9 @@ const Home = () => {
 	const getInitData = () => {
 		
 		fetch(`${URL_API}/home`, {
-		method: "GET",
-		credentials: "include",
-	})
+			method: "GET",
+			credentials: "include",
+		})
 		.then((res) => {
 		if (!res.ok) throw new Error("No autenticado");
 		return res.json();
